@@ -1,13 +1,4 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.scss']
-// })
-// export class AppComponent {
-//   title = 'lucky-wheel-app';
-// }
+import { GeneralService } from './shared/services/general.service';
 import { Component, ViewChild } from '@angular/core';
 import { NgxWheelComponent, TextAlignment, TextOrientation } from 'ngx-wheel'
 import { MatDialog } from '@angular/material/dialog';
@@ -15,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NzModalService } from 'ng-zorro-antd/modal';
 // import { ModalComponent } from './modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalPopupComponent } from './modal-popup/modal-popup.component';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +21,8 @@ export class AppComponent {
 
   constructor(public dialog: MatDialog, 
               private modalService: NzModalService,
-              private newModalService: MdbModalService) {};
+              private newModalService: MdbModalService,
+              public generalService: GeneralService) {};
   title = 'spinGame';
   seed = [...Array(12).keys()];
   idToLandOn: any;
@@ -106,5 +99,9 @@ export class AppComponent {
   // openModal(){
   //   this.modalRef = this.newModalService.open(ModalComponent)
   // }
+
+  openPopup(){
+    this.dialog.open(ModalPopupComponent);
+  }
 }
 

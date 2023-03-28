@@ -14,11 +14,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { NgxWheelModule } from 'ngx-wheel';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { ModalPopupComponent } from './modal-popup/modal-popup.component';
+
+import {MatButtonModule} from '@angular/material/button';
+import { DialogComponent } from './shared/components/dialog/dialog.component';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalPopupComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,7 @@ registerLocaleData(en);
     MatDialogModule,
     MdbModalModule,
     NgxWheelModule,
+    MatButtonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

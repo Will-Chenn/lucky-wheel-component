@@ -1,0 +1,14 @@
+<div id="overlay" (click)="generalService.showDialog = false"></div>
+
+<div id="container">
+    <div id="header">Conguadulation!</div>
+
+    <div id="content">Are you sure about this?</div>
+
+    <div id="actions">
+        <button class="cancel" (click)="generalService.showDialog = false">
+            Copy Name
+        </button>
+        <button>Exit</button>
+    </div>
+</div>
