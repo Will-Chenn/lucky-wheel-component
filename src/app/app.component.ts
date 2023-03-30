@@ -2,11 +2,13 @@ import { GeneralService } from './shared/services/general.service';
 import { Component, ViewChild } from '@angular/core';
 import { NgxWheelComponent, TextAlignment, TextOrientation } from 'ngx-wheel'
 import { MatDialog } from '@angular/material/dialog';
-// import { PopupTemplateComponent } from './popup-template/popup-template.component';
+import { PopupTemplateComponent } from './popup-template/popup-template.component';
 import { NzModalService } from 'ng-zorro-antd/modal';
 // import { ModalComponent } from './modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ModalPopupComponent } from './modal-popup/modal-popup.component';
+import { DialogComponent } from './shared/components/dialog/dialog.component';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 @Component({
   selector: 'app-root',
@@ -87,13 +89,20 @@ export class AppComponent {
     // });
     // console.log(modal)
 
-    // const dialogRef = this.dialog.open(PopupTemplateComponent, {
-    //   data: { message: `You got Prize ${this.idToLandOn}` }
+    // const dialogRef = this.dialog.open(DialogComponent, {
+    //   // data: { message: `You got Prize ${this.idToLandOn}` }
     // });
   
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(`Dialog result: ${result}`);
     // });
+    const dialogRef = this.dialog.open(PopupTemplateComponent, {
+      data: { message: `You got Prize ${this.idToLandOn}` }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   // openModal(){
@@ -102,6 +111,10 @@ export class AppComponent {
 
   openPopup(){
     this.dialog.open(ModalPopupComponent);
+  }
+
+  openMaterialDialog(){
+    this.dialog.open(DialogExampleComponent);
   }
 }
 

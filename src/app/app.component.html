@@ -2,7 +2,7 @@
   <ngx-wheel #wheel
     [width]='600'
     [height]='600'
-    [spinDuration]='4'
+    [spinDuration]='1'
     [disableSpinOnClick]='true'
     [items]="items"
     [innerRadius]='50'
@@ -18,8 +18,13 @@
 
   <div class="main">
     <button (click)="playOrReset()" mat-raised-button>{{ buttonText }}</button>
-    <button (click)="openPopup()" mat-raised-button color="primary">open popup</button>
+    <!-- <button (click)="openPopup()" mat-raised-button color="primary">open popup</button> -->
   </div>
 
 <app-dialog *ngIf="generalService.showDialog"></app-dialog>
 <button (click)="generalService.showDialog = true">Show Dialog</button>
+
+
+<button mat-raised-button (click)="openMaterialDialog()">Open Material Dialog</button>
+
+<button mat-raised-button color="blue">Primary</button>

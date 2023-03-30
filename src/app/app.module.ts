@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,17 +17,22 @@ import { NgxWheelModule } from 'ngx-wheel';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ModalPopupComponent } from './modal-popup/modal-popup.component';
 
-import {MatButtonModule} from '@angular/material/button';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
+import { PopupTemplateComponent } from './popup-template/popup-template.component';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalPopupComponent,
-    DialogComponent
+    DialogComponent,
+    PopupTemplateComponent,
+    DialogExampleComponent
   ],
+  entryComponents:[DialogExampleComponent],
   imports: [
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -35,7 +41,6 @@ registerLocaleData(en);
     MatDialogModule,
     MdbModalModule,
     NgxWheelModule,
-    MatButtonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
